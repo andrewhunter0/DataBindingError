@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+// Unresolved reference: BR, see https://blog.csdn.net/weixin_40929353/article/details/102911137
+apply plugin: 'kotlin-kapt'
+
+// hilt
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.andrew.architecture"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        // 支持dataBinding功能
+        dataBinding.enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Default interface methods are only supported starting with Android N
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+// Unresolved reference: BR, see https://blog.csdn.net/weixin_40929353/article/details/102911137
+kapt {
+    generateStubs = true
+}
+
+dependencies {
+    // include flutter module
+//    implementation project(':business:flutter')
+    implementation project(':business:modulea')
+    implementation project(':business:moduleb')
+    implementation project(':core')
+    implementation project(':common:utils')
+//    implementation project(':business:autoservice:service-register')
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "androidx.databinding:databinding-runtime:$databindingVersion"
+
+    // Unresolved reference: BR,should add this dependencies for java class to call BR variable
+    // see https://blog.csdn.net/weixin_40929353/article/details/102911137
+
+    // So you don't need to use databinding-compiler
+    // https://stackoverflow.com/questions/53882215/androidx-with-bindingadapter
+    kapt "com.android.databinding:compiler:$kotlinVersion"
+
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerviewVersion"
+
+    //hilt
+    implementation "com.google.dagger:hilt-android:2.28-alpha"
+    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+//    implementation "org.koin:koin-android:$kotlinVersion"
+}

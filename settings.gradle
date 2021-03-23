@@ -1,0 +1,19 @@
+rootProject.name = "DataBindingError"
+
+include ':app'
+include ':core'
+include ':common'
+include ':services'
+include ':common:utils'
+include ':business:modulea'
+include ':business:moduleb'
+
+// 在gradle.properties里使用android.enableBuildCache=false，并且设置下面这个，没用，只有在org.gradle.caching=false时
+// 不停的使用gradlew clean assembleDebug --stacktrace编译，将不会再出现data binding的错误
+//buildCache {
+//    local {
+//        directory = new File(rootDir, 'build-cache')
+//        // The number of days after unused entries are garbage collected. Defaults to 7 days.
+//        removeUnusedEntriesAfterDays = 5
+//    }
+//}

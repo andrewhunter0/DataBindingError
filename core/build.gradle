@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+// 要使用注解@BindingAdapter
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        // 支持dataBinding功能
+        dataBinding.enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+kapt {
+    generateStubs = true
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "androidx.databinding:databinding-runtime:$databindingVersion"
+    // Kotlin 代码的扩展库，Google 把我们开发的时候，比较常用的一些代码块，进行封装，然后在这个基础上，提供更良好的 API
+//    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation "androidx.recyclerview:recyclerview:$recyclerviewVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    // 最新2.2.0，https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-viewmodel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$viewModelVersion"
+
+    api project(':services')
+
+    api "com.github.bumptech.glide:glide:$glideVersion"
+}
