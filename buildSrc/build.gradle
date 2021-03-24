@@ -1,0 +1,18 @@
+apply plugin: 'groovy'
+
+repositories {
+    // 发布到maven用
+    mavenCentral()
+    google()
+    jcenter()
+}
+
+dependencies {
+    // gradle sdk
+    implementation gradleApi()
+    // groovy语法和api
+    implementation localGroovy()
+
+    // If comment this, data binding error will disappear
+    implementation "com.android.tools.build:gradle:4.0.1"
+}
