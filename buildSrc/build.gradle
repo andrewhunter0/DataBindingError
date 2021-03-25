@@ -15,4 +15,5 @@ dependencies {
 
     // If comment this, data binding error will disappear
     implementation "com.android.tools.build:gradle:4.0.1"
+    // change to compileOnly "com.android.tools.build:gradle:4.0.1" will be ok
 }

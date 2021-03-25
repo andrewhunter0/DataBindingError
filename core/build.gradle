@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 // 要使用注解@BindingAdapter
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -12,8 +12,11 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        // 支持dataBinding功能
-        dataBinding.enabled = true
+    }
+
+    // 支持dataBinding功能
+    buildFeatures {
+        dataBinding true
     }
 
     buildTypes {

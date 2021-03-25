@@ -7,9 +7,9 @@ if (isApplication) {
 }
 
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 // Unresolved reference: BR, see https://blog.csdn.net/weixin_40929353/article/details/102911137
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 // hilt
 //apply plugin: 'kotlin-kapt'

@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 // Unresolved reference: BR, see https://blog.csdn.net/weixin_40929353/article/details/102911137
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 // hilt
 apply plugin: 'dagger.hilt.android.plugin'
@@ -16,8 +16,11 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-        // 支持dataBinding功能
-        dataBinding.enabled = true
+    }
+
+    // 支持dataBinding功能
+    buildFeatures {
+        dataBinding true
     }
 
     buildTypes {
