@@ -2,6 +2,8 @@ package com.bruce.moduleb.hilt
 
 import com.andrew.architecture.services.service.AnalyticsService
 import com.andrew.architecture.services.service.AnalyticsService2
+import com.andrew.architecture.services.service.AnalyticsService3
+import com.andrew.architecture.services.service.AnalyticsService3One
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
@@ -24,6 +26,17 @@ interface ModuleBEntryPoint {
     var analyticsService2: AnalyticsService2?
 
     var analyticsService: AnalyticsService?
+
+    /**
+     * e: D:\Git\github\DataBindingError\app\build\generated\source\kapt\debug\com\andrew\architecture\AppApplication_HiltComponents.java:154: ����: [Dagger/MissingBinding] com.andrew.architecture.services.service.AnalyticsService3 cannot be provided without an @Provides-annotated method.
+    public abstract static class ApplicationC implements AppApplication_GeneratedInjector,
+    ^
+    A binding with matching key exists in component: com.andrew.architecture.AppApplication_HiltComponents.ApplicationC
+    com.andrew.architecture.services.service.AnalyticsService3 is requested at
+    com.bruce.moduleb.hilt.ModuleBEntryPoint.getAnalyticsService3()
+     */
+//    @AnalyticsService3One
+//    var analyticsService3: AnalyticsService3?
 
     // 没有提供provides或者binds的，运行会直接报错
 //    fun getAnalyticsServiceTest(): AnalyticsService4
