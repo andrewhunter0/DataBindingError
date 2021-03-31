@@ -12,7 +12,7 @@ import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
 import dagger.hilt.android.components.ActivityComponent;
-import dagger.hilt.android.components.ApplicationComponent;
+import dagger.hilt.components.SingletonComponent;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.android.scopes.ActivityScoped;
 
@@ -42,7 +42,7 @@ public class AnalyticsServiceImpl_b22 implements AnalyticsService3 {
 ////    @InstallIn(ActivityComponent.class)
 //    // 当使用@InstallIn(ActivityComponent.class)时，对应的@Provides要修改为@ActivityScoped，而不能是
 //    // ApplicationComponent与@Singleton对应
-//    @InstallIn(ApplicationComponent.class)
+//    @InstallIn(SingletonComponent.class)
 //    public static class AnalyticsModule_b22 {
 //        @AnalyticsService3Two
 //        @Provides

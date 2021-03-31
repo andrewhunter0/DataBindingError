@@ -1,12 +1,9 @@
 package com.bruce.moduleb.hilt
 
-import com.andrew.architecture.services.service.AnalyticsService
-import com.andrew.architecture.services.service.AnalyticsService2
-import com.andrew.architecture.services.service.AnalyticsService3
-import com.andrew.architecture.services.service.AnalyticsService3One
+import com.andrew.architecture.services.service.*
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 
 /**
  * @Description: 通过@EntryPoint定义注入点，这样在非Hilt支持的Android类里，也能通过
@@ -18,7 +15,7 @@ import dagger.hilt.android.components.ApplicationComponent
  * @CreateDate:  2021/1/28 10:36 AM
  */
 @EntryPoint
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 interface ModuleBEntryPoint {
     // 官方写法是fun analyticsServiceImpl(): AnalyticsServiceImpl_b
     var analyticsServiceImpl: AnalyticsServiceImpl_b?
@@ -35,8 +32,10 @@ interface ModuleBEntryPoint {
     com.andrew.architecture.services.service.AnalyticsService3 is requested at
     com.bruce.moduleb.hilt.ModuleBEntryPoint.getAnalyticsService3()
      */
-//    @AnalyticsService3One
-//    var analyticsService3: AnalyticsService3?
+    @get:AnalyticsService3One
+    var analyticsService3: AnalyticsService3?
+    @get:AnalyticsService3Two
+    var analyticsService3_2: AnalyticsService3?
 
     // 没有提供provides或者binds的，运行会直接报错
 //    fun getAnalyticsServiceTest(): AnalyticsService4

@@ -136,6 +136,8 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         println("test----########################################################################\n")
 //        println("test----in MainActivity analyticsService4:$analyticsService4")
         println("test----in MainActivity EntryPoint analyticsService:${EntryPointHelper.getEntryPoint(applicationContext).analyticsService}")
+        println("test----in MainActivity EntryPoint analyticsService3:${EntryPointHelper.getEntryPoint(applicationContext).analyticsService3}")
+        println("test----in MainActivity EntryPoint analyticsService3_2:${EntryPointHelper.getEntryPoint(applicationContext).analyticsService3_2}")
 //        println("test----in MainActivity analyticsService4:${EntryPointHelper.getEntryPoint(applicationContext).getAnalyticsServiceTest()}")
     }
 

@@ -8,7 +8,7 @@ import javax.inject.Singleton;
 import dagger.Binds;
 import dagger.Module;
 import dagger.hilt.InstallIn;
-import dagger.hilt.android.components.ApplicationComponent;
+import dagger.hilt.components.SingletonComponent;
 
 /**
  * @Description: Java类作用描述
@@ -26,7 +26,7 @@ public class AnalyticsServiceImp implements AnalyticsService {
     }
 
     @Module
-    @InstallIn(ApplicationComponent.class)
+    @InstallIn(SingletonComponent.class)
     // 要是作为内部类，需要加上static，要么你上AnalyticsServiceImpl_b里的一样，作为一个单独的类
     public static abstract class AnalyticsModule {
         @Binds

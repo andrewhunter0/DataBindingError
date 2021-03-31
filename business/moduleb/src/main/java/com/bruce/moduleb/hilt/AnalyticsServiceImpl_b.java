@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 import dagger.Binds;
 import dagger.Module;
 import dagger.hilt.InstallIn;
-import dagger.hilt.android.components.ApplicationComponent;
+import dagger.hilt.components.SingletonComponent;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 
 /**
@@ -30,7 +30,7 @@ public class AnalyticsServiceImpl_b implements AnalyticsService2 {
 }
 
 @Module
-@InstallIn(ApplicationComponent.class)
+@InstallIn(SingletonComponent.class)
 // 作为一个独立的类，不写public发现也没事，要么像AnalyticsServiceImp里的一样，作为静态内部类
 abstract class AnalyticsModule_b {
     // 如果使用@Binds注解，需要给对象实例类的构造函数，添加@Inject注解

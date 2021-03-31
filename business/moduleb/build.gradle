@@ -39,8 +39,8 @@ dependencies {
     implementation project(':core')
 
     //hilt
-    implementation "com.google.dagger:hilt-android:2.28-alpha"
-    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+    implementation "com.google.dagger:hilt-android:${hilt_version}"
+    kapt "com.google.dagger:hilt-android-compiler:${hilt_version}"
 
     // google guice
 //    implementation 'com.google.inject:guice:4.1.0'

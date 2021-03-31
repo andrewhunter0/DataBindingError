@@ -24,7 +24,7 @@ class CommonClass_b {
     }
 
 //    @EntryPoint
-//    @InstallIn(ApplicationComponent::class)
+//    @InstallIn(SingletonComponent::class)
 //    interface CommonClass3EntryPoint {
 //        var analyticsServiceImpl: AnalyticsServiceImpl_b
 //
