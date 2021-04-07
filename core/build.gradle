@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-// 要使用注解@BindingAdapter
-//apply plugin: 'kotlin-kapt'
+// 要使用注解@BindingAdapter, if add apply plugin: 'kotlin-kapt', data binding error will come
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {

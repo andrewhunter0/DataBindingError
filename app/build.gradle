@@ -7,6 +7,9 @@ apply plugin: 'kotlin-android-extensions'
 // hilt
 apply plugin: 'dagger.hilt.android.plugin'
 
+// 对应插件名字
+apply plugin: 'service-register'
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -38,9 +41,9 @@ android {
 }
 
 // Unresolved reference: BR, see https://blog.csdn.net/weixin_40929353/article/details/102911137
-kapt {
-    generateStubs = true
-}
+//kapt {
+//    generateStubs = true
+//}
 
 dependencies {
     // include flutter module
